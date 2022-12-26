@@ -6,11 +6,9 @@ const saveTime = JSON.parse(localStorage.getItem("videoplayer-current-time")) ||
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
-player.on('timeUpdate', showSeconds);
+player.on('timeupdate', throttle(onPlay, 1000));
 function onPlay({ seconds }) {
     localStorage.setItem("videoplayer-current-time", seconds);
 }
 
-player.setCurrentItem(saveTime);
-
-
+player.setCurrentTime(saveTime);
