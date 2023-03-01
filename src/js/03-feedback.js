@@ -17,8 +17,8 @@ function onFormSubmit(ev) {
 
 ev.preventDefault();
 ev.currentTarget.reset();
+console.log(localStorage.getItem(STORAGE_KEY));
 localStorage.removeItem(STORAGE_KEY);
-console.log(formData);
 formData = {};
 
 }
@@ -37,3 +37,5 @@ function getFormData () {
 }
 
 getFormData();
+
+
